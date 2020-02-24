@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'INSERT INTO contact_us data VALUE ?;',
+        'INSERT INTO contact_us (data) VALUES (?);',
         [data],
         function (err, result){
             res.send(result);

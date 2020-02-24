@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'INSERT INTO contact_company (cname, name, lcall, hcall, email, location, etc) VALUE(?, ?, ?, ?, ?, ?, ?);',
+        'INSERT INTO contact_company (cname, name, lcall, hcall, email, location, etc) VALUES (?, ?, ?, ?, ?, ?, ?);',
         [cname, name, lcall, hcall, email, location, etc],
         function (err, result){
             res.send(result);
