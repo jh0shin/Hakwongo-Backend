@@ -24,6 +24,7 @@ var searchByNameRouter = require('./routes/search/name');
 // post contact data to DB
 var contactParentRouter = require('./routes/contact/parent');
 var contactCompanyRouter = require('./routes/contact/company');
+var contactUsRouter = require('./routes/contact/us');
 
 // ========================================
 // express for routing
@@ -55,6 +56,7 @@ app.use(require('connect-history-api-fallback')());
 // contact for parents and company
 app.use('/api/contact/parent', contactParentRouter);
 app.use('/api/contact/company', contactCompanyRouter);
+app.use('/api/contact/us', contactUsRouter);
 
 app.use('/api/account/signup', joinRouter);
 app.use('/api/account/login', loginRouter);
