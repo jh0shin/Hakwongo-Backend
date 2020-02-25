@@ -6,29 +6,27 @@ var router = express.Router();
 var mysqlDB = require('../../db_connector');
 
 router.get('/', function (req, res, next) {    
-    var result1 = [];
-    var result2 = [];
-    var result3 = [];
+    var data;
 
     // return contact_us
     mysqlDB.query(
         'select * from contact_us',
         function (err, result){
-            result1 = result;
+            data = result;
     });
 
     // return contact_parent
     mysqlDB.query(
         'select * from contact_parent',
         function (err, result){
-            result2 = result;
+            data.concat(result);
     });
 
     // return contact_company
     mysqlDB.query(
         'select * from contact_company',
         function (err, result){
-            result3 = result;
+            data.concat(result);
     });
 
     res.send([result1, result2, result3]);
