@@ -5,31 +5,31 @@ var router = express.Router();
 
 var mysqlDB = require('../../db_connector');
 
-router.get('/', function (req, res, next) {    
-    var data;
-
+router.get('/us', function (req, res, next) {    
     // return contact_us
     mysqlDB.query(
         'select * from contact_us',
         function (err, result){
-            data = result;
+            res.send(result);
     });
+});
 
+router.get('/parent', function (req, res, next) {    
     // return contact_parent
     mysqlDB.query(
         'select * from contact_parent',
         function (err, result){
-            data.concat(result);
+            res.send(result);
     });
+});
 
+router.get('/company', function (req, res, next) {    
     // return contact_company
     mysqlDB.query(
         'select * from contact_company',
         function (err, result){
-            data.concat(result);
+            res.send(result);
     });
-
-    res.send([result1, result2, result3]);
 });
 
 module.exports = router;
