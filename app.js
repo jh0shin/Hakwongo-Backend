@@ -34,7 +34,7 @@ const app = express();
 // CORS middleware option setting for security ( only allowed server request )
 const whitelist = [
   'http://hakwongo.com',
-  // 'http://localhost:3001', // TODO : localhost is for debugging
+  'http://localhost:3000', // TODO : localhost is for debugging
 ] 
 const corsOptions = {
   origin: function (origin, callback) {
