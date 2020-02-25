@@ -5,7 +5,7 @@ var router = express.Router();
 
 var mysqlDB = require('../../db_connector');
 
-router.post('/', function (req, res, next) {
+router.get('/', function (req, res, next) {
     var hk_name = req.body.hakwonName;
     
     var result1 = [];
