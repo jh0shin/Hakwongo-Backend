@@ -26,6 +26,7 @@ const searchByNameRouter = require('./routes/search/name');
 const contactParentRouter = require('./routes/contact/parent');
 const contactCompanyRouter = require('./routes/contact/company');
 const contactUsRouter = require('./routes/contact/us');
+const contactListRouter = require('./routes/contact/list');
 
 // ========================================
 // express for routing
@@ -75,6 +76,7 @@ app.use(cors(corsOptions));
 app.use('/api/contact/parent', contactParentRouter);
 app.use('/api/contact/company', contactCompanyRouter);
 app.use('/api/contact/us', contactUsRouter);
+app.use('/api/contact/list', contactListRouter);
 
 app.use('/api/account/signup', joinRouter);
 app.use('/api/account/login', loginRouter);
