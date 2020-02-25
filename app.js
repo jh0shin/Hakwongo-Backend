@@ -2,33 +2,50 @@
   Main code of backend
 */
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mysqlDB = require('./db_connector');
+const createError = require('http-errors');
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mysqlDB = require('./db_connector');
 
 // ========================================
 //            ROUTER DECLARATION
 // ========================================
 // index page router (needs modify)
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 // account management files' router
-var joinRouter = require('./routes/account/signup');
-var loginRouter = require('./routes/account/login');
+const joinRouter = require('./routes/account/signup');
+const loginRouter = require('./routes/account/login');
 // notice bulletin board router
-var noticeRouter = require('./routes/notice/notice');
+const noticeRouter = require('./routes/notice/notice');
 // hakwon search by name
-var searchByNameRouter = require('./routes/search/name');
+const searchByNameRouter = require('./routes/search/name');
 // post contact data to DB
-var contactParentRouter = require('./routes/contact/parent');
-var contactCompanyRouter = require('./routes/contact/company');
-var contactUsRouter = require('./routes/contact/us');
+const contactParentRouter = require('./routes/contact/parent');
+const contactCompanyRouter = require('./routes/contact/company');
+const contactUsRouter = require('./routes/contact/us');
 
 // ========================================
 // express for routing
-var app = express();
+const app = express();
+
+// CORS middleware option setting for security ( only allowed server request )
+const whitelist = [
+  'http://hakwongo.com',
+  // 'http://localhost:3001', // TODO : localhost is for debugging
+] 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback (new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true,
+}
 
 // ========================================
 // default express port
@@ -49,6 +66,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('connect-history-api-fallback')());
+app.use(cors(corsOptions));
 
 // ========================================
 //            ROUTER ROUTING

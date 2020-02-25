@@ -8,7 +8,9 @@ var mysqlDB = require('../../db_connector');
 router.post('/', function (req, res, next) {
 
     // data
-    var data = req.body.data
+    var data = req.body.data;
+
+    console.log(data);
 
     // return search result
     mysqlDB.query(
