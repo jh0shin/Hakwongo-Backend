@@ -36,6 +36,7 @@ const app = express();
 const whitelist = [
   'http://hakwongo.com',
   'http://localhost:3000', // TODO : localhost is for debugging
+  '*'
 ] 
 const corsOptions = {
   origin: function (origin, callback) {
