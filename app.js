@@ -4,7 +4,6 @@
 
 const createError = require('http-errors');
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -32,23 +31,6 @@ const contactListRouter = require('./routes/contact/list');
 // express for routing
 const app = express();
 
-// CORS middleware option setting for security ( only allowed server request )
-const whitelist = [
-  'http://hakwongo.com',
-  'http://localhost:3000', // TODO : localhost is for debugging
-  '*'
-] 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback (new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true,
-}
-
 // ========================================
 // default express port
 const port = 3000;
@@ -56,6 +38,15 @@ const port = 3000;
 // ========================================
 // connection with database
 mysqlDB.connect();
+
+// ========================================
+// app option for preventing cors
+app.options('/wirte', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-with');
+  res.send();
+})
 
 // ========================================
 // view engine setup
@@ -68,7 +59,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('connect-history-api-fallback')());
-app.use(cors(corsOptions));
 
 // ========================================
 //            ROUTER ROUTING
