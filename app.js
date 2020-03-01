@@ -8,6 +8,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mysqlDB = require('./db_connector');
+const cors = require('cors');
 
 // ========================================
 //            ROUTER DECLARATION
@@ -41,13 +42,15 @@ mysqlDB.connect();
 
 // ========================================
 // app option for preventing cors
-app.options('/wirte', (req, res) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Max-Age', '3600')
-  res.header('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Content-Length, X-Requested-With');
-  res.send();
-})
+app.use(cors());
+
+// app.options('/wirte', (req, res) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+//   res.header('Access-Control-Max-Age', '3600')
+//   res.header('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Content-Length, X-Requested-With');
+//   res.send();
+// })
 
 // ========================================
 // view engine setup
