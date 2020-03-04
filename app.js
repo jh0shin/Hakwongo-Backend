@@ -27,6 +27,9 @@ const contactParentRouter = require('./routes/contact/parent');
 const contactCompanyRouter = require('./routes/contact/company');
 const contactUsRouter = require('./routes/contact/us');
 const contactListRouter = require('./routes/contact/list');
+// post and get comment by DB
+const getCommentRouter = require('./routes/academy/getComment');
+const postCommentRouter = require('./routes/academy/postComment');
 
 // ========================================
 // express for routing
@@ -72,6 +75,10 @@ app.use('/api/contact/parent', contactParentRouter);
 app.use('/api/contact/company', contactCompanyRouter);
 app.use('/api/contact/us', contactUsRouter);
 app.use('/api/contact/list', contactListRouter);
+
+// post and get comment
+app.use('/api/academy/getComment', getCommentRouter);
+app.use('/api/academy/postComment', postCommentRouter);
 
 app.use('/api/account/signup', joinRouter);
 app.use('/api/account/login', loginRouter);
