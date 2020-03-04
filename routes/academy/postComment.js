@@ -9,11 +9,12 @@ router.post('/', function (req, res, next) {
     var name = req.body.name;
     var user = req.body.user;
     var comment = req.body.comment;
+    var time = req.body.time;
 
     // return search result
     mysqlDB.query(
-        'insert into academy_comment (name, user, comment) values (?, ?, ?);',
-        [name, user, comment], function (err, result){
+        'insert into academy_comment (name, user, comment, time) values (?, ?, ?, ?);',
+        [name, user, comment, time], function (err, result){
             res.send(result);
     });
 });
