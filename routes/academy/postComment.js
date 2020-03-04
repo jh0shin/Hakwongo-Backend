@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'insert into academy_comment (name, user, comment) values (?);',
+        'insert into academy_comment (name, user, comment) values (?, ?, ?);',
         [name, user, comment], function (err, result){
             res.send(result);
     });
