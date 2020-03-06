@@ -13,13 +13,6 @@ const cors = require('cors');
 // ========================================
 //            ROUTER DECLARATION
 // ========================================
-// index page router (needs modify)
-const indexRouter = require('./routes/index');
-// account management files' router
-const joinRouter = require('./routes/account/signup');
-const loginRouter = require('./routes/account/login');
-// notice bulletin board router
-const noticeRouter = require('./routes/notice/notice');
 // hakwon search by name
 const searchByNameRouter = require('./routes/search/name');
 // post contact data to DB
@@ -31,6 +24,8 @@ const contactListRouter = require('./routes/contact/list');
 const getCommentRouter = require('./routes/academy/getComment');
 const postCommentRouter = require('./routes/academy/postComment');
 const deleteCommentRouter = require('./routes/academy/deleteComment');
+// getting user information from DB
+const getMyCommentRouter = require('./routes/user/comment');
 
 // ========================================
 // express for routing
@@ -82,11 +77,11 @@ app.use('/api/academy/getComment', getCommentRouter);
 app.use('/api/academy/postComment', postCommentRouter);
 app.use('/api/academy/deleteComment', deleteCommentRouter);
 
-app.use('/api/account/signup', joinRouter);
-app.use('/api/account/login', loginRouter);
-app.use('/api/notice/list', noticeRouter);
+// get user information
+app.use('/api/user/comment', getMyCommentRouter);
+
+// search academy by name
 app.use('/api/search/name', searchByNameRouter);
-app.use('/', indexRouter);
 
 // ========================================
 // catch 404 and forward to error handler
