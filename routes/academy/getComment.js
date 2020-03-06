@@ -1,4 +1,4 @@
-// api for SEARCH_BY_NAME
+// api for getting comment list from DB server
 
 var express = require('express');
 var router = express.Router();

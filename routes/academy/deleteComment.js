@@ -1,4 +1,4 @@
-// api for posting comment on DB server
+// api for deleting comment on DB server
 
 var express = require('express');
 var router = express.Router();
@@ -11,9 +11,9 @@ router.post('/', function (req, res, next) {
     var comment = req.body.comment;
     var time = req.body.time;
 
-    // return search result
+    // send delete query
     mysqlDB.query(
-        'insert into academy_comment (name, user, comment, time) values (?, ?, ?, ?);',
+        'delete from academy_comment where name=? and user=? and comment=? and time=?;',
         [name, user, comment, time], function (err, result){
             res.send(result);
     });
