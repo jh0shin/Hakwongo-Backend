@@ -30,6 +30,7 @@ const contactListRouter = require('./routes/contact/list');
 // post and get comment by DB
 const getCommentRouter = require('./routes/academy/getComment');
 const postCommentRouter = require('./routes/academy/postComment');
+const deleteCommentRouter = require('./routes/academy/deleteComment');
 
 // ========================================
 // express for routing
@@ -79,6 +80,7 @@ app.use('/api/contact/list', contactListRouter);
 // post and get comment
 app.use('/api/academy/getComment', getCommentRouter);
 app.use('/api/academy/postComment', postCommentRouter);
+app.use('/api/academy/deleteComment', deleteCommentRouter);
 
 app.use('/api/account/signup', joinRouter);
 app.use('/api/account/login', loginRouter);
