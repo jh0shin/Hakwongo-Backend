@@ -15,6 +15,7 @@ const cors = require('cors');
 // ========================================
 // hakwon search by name
 const searchByNameRouter = require('./routes/search/name');
+const searchByExactNameRouter = require('./routes/search/exactname');
 // post contact data to DB
 const contactParentRouter = require('./routes/contact/parent');
 const contactCompanyRouter = require('./routes/contact/company');
@@ -26,6 +27,7 @@ const postCommentRouter = require('./routes/academy/postComment');
 const deleteCommentRouter = require('./routes/academy/deleteComment');
 // getting user information from DB
 const getMyCommentRouter = require('./routes/user/comment');
+const getMyBookmarkRouter = require('./routes/user/bookmark');
 // adding/deleting and checking bookmark
 const bookmarkRouter = require('./routes/academy/bookmark');
 const isBookmarkRouter = require('./routes/academy/isBookmark');
@@ -82,9 +84,11 @@ app.use('/api/academy/deleteComment', deleteCommentRouter);
 
 // get user information
 app.use('/api/user/comment', getMyCommentRouter);
+app.use('/api/user/bookmark', getMyBookmarkRouter);
 
 // search academy by name
 app.use('/api/search/name', searchByNameRouter);
+app.use('/api/search/exactname', searchByExactNameRouter);
 
 // adding/deleting and checking bookmark
 app.use('/api/academy/bookmark', bookmarkRouter);
