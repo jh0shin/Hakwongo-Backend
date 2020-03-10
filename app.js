@@ -26,6 +26,9 @@ const postCommentRouter = require('./routes/academy/postComment');
 const deleteCommentRouter = require('./routes/academy/deleteComment');
 // getting user information from DB
 const getMyCommentRouter = require('./routes/user/comment');
+// adding/deleting and checking bookmark
+const bookmarkRouter = require('./routes/academy/bookmark');
+const isBookmarkRouter = require('./routes/academy/isBookmark');
 
 // ========================================
 // express for routing
@@ -82,6 +85,10 @@ app.use('/api/user/comment', getMyCommentRouter);
 
 // search academy by name
 app.use('/api/search/name', searchByNameRouter);
+
+// adding/deleting and checking bookmark
+app.use('/api/academy/bookmark', bookmarkRouter);
+app.use('/api/academy/isBookmark', isBookmarkRouter);
 
 // ========================================
 // catch 404 and forward to error handler
