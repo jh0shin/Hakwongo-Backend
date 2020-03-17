@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
     var name = req.body.name;
 
     mysqlDB.query(
-        'select user=? and name=? from academy_bookmark;',
+        'select * from academy_bookmark where user=? and name=?;',
         [user, name], function (err, result) {
             res.send(result);
         }
