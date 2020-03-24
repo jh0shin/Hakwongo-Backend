@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
     // return search result
     mysqlDB.query(
         'select * from hk_gs where binary hname like ? limit ? offset ?;',
-        ["%" + name + "%", itemPerPage, limit, offset], function (err, result){
+        ["%" + name + "%", limit, offset], function (err, result){
             res.send(result);
     });
 });
