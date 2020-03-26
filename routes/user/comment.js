@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'select * from academy_comment where binary user = ? limit ?, ?',
+        'select * from academy_comment where binary user = ? order by time desc limit ?, ?',
         [user, Number(offset), Number(limit)], function (err, result){
             res.send(result);
     });

@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'select * from academy_bookmark where user = ? order by time limit ?, ?',
+        'select * from academy_bookmark where user = ? limit ?, ?',
         [user, Number(offset), Number(limit)], function (err, result){
             res.send(result);
     });
