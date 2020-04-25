@@ -17,6 +17,7 @@ const cors = require('cors');
 const searchByNameRouter = require('./routes/search/name');
 const searchByExactNameRouter = require('./routes/search/exactname');
 const searchByIDRouter = require('./routes/search/id');
+const idToNameRouter = require('./routes/search/idname');
 // post contact data to DB
 const contactParentRouter = require('./routes/contact/parent');
 const contactCompanyRouter = require('./routes/contact/company');
@@ -91,6 +92,7 @@ app.use('/api/user/bookmark', getMyBookmarkRouter);
 app.use('/api/search/name', searchByNameRouter);
 app.use('/api/search/exactname', searchByExactNameRouter);
 app.use('/api/search/id', searchByIDRouter);
+app.use('/api/search/idname', idToNameRouter);
 
 // adding/deleting and checking bookmark
 app.use('/api/academy/bookmark', bookmarkRouter);
