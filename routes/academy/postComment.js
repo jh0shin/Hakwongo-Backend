@@ -6,15 +6,15 @@ var router = express.Router();
 var mysqlDB = require('../../db_connector');
 
 router.post('/', function (req, res, next) {
-    var name = req.body.name;
+    var id = req.body.id;
     var user = req.body.user;
     var comment = req.body.comment;
     var time = req.body.time;
 
     // return search result
     mysqlDB.query(
-        'insert into academy_comment (name, user, comment, time) values (?, ?, ?, ?);',
-        [name, user, comment, time], function (err, result){
+        'insert into academy_comment (id, user, comment, time) values (?, ?, ?, ?);',
+        [Number(id), user, comment, time], function (err, result){
             res.send(result);
     });
 });

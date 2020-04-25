@@ -6,7 +6,7 @@ var router = express.Router();
 var mysqlDB = require('../../db_connector');
 
 router.post('/', function (req, res, next) {
-    var name = req.body.name;
+    var id = req.body.id;
     var limit = req.body.limit;
     var offset = req.body.offset;
 
@@ -14,8 +14,8 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'select * from academy_comment where binary name = ? order by time desc limit ?, ?',
-        [name, Number(offset), Number(limit)], function (err, result){
+        'select * from academy_comment where id = ? order by time desc limit ?, ?',
+        [Number(id), Number(offset), Number(limit)], function (err, result){
             res.send(result);
     });
 });

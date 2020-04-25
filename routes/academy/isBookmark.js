@@ -7,11 +7,11 @@ var mysqlDB = require('../../db_connector');
 
 router.post('/', function (req, res, next) {
     var user = req.body.user;
-    var name = req.body.name;
+    var id = req.body.id;
 
     mysqlDB.query(
-        'select * from academy_bookmark where user=? and name=?;',
-        [user, name], function (err, result) {
+        'select * from academy_bookmark where user=? and id=?;',
+        [user, Number(id)], function (err, result) {
             res.send(result);
         }
     )
