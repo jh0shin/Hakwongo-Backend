@@ -48,8 +48,8 @@ router.post('/', function (req, res, next) {
     var query = 'select * from hwgo';
 
     if (addr != '') query += ('where binary addr like \'%' + addr + '%\'');
-    if (subject != '') query += ' and part3 like \'%' + subject + '%\'';
-    if (age != '') query += ' and part3 like \'%' + age + '%\'';
+    if (subject != '') query += ' and subject like \'%' + subject + '%\'';
+    if (age != '') query += ' and age like \'%' + age + '%\'';
     query += ' limit ' + offset + ', ' + limit + ';';
 
     // changed return search result
