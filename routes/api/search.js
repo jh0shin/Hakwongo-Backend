@@ -47,7 +47,7 @@ router.post('/', function (req, res, next) {
     //         res.send(result);
     // });
 
-    var query = 'select * from hwgo';
+    var query = 'select * from gg_hakwon';
 
     if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
     if (dong != '') query += (' and addr like \'%' + dong + '%\'');
