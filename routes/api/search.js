@@ -45,7 +45,7 @@ router.post('/', function (req, res, next) {
     //         res.send(result);
     // });
 
-    var query = 'select distinct id, name, part1, addr, founder, callnum, teacher, limitsum from hwgo';
+    var query = 'select * from hwgo';
 
     if (addr != '') query += ('where binary addr like \'%' + addr + '%\'');
     if (subject != '') query += ' and part3 like \'%' + subject + '%\'';
