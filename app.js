@@ -34,6 +34,10 @@ const getMyBookmarkRouter = require('./routes/user/bookmark');
 const bookmarkRouter = require('./routes/academy/bookmark');
 const isBookmarkRouter = require('./routes/academy/isBookmark');
 
+// new api ================
+// initial search by condition
+const initialSearchRouter = requite('./routes/api/search');
+
 // ========================================
 // express for routing
 const app = express();
@@ -97,6 +101,10 @@ app.use('/api/search/idname', idToNameRouter);
 // adding/deleting and checking bookmark
 app.use('/api/academy/bookmark', bookmarkRouter);
 app.use('/api/academy/isBookmark', isBookmarkRouter);
+
+// new api ================
+// initial search by condition
+app.use('/api2/search/init', initialSearchRouter);
 
 // ========================================
 // catch 404 and forward to error handler
