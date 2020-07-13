@@ -36,7 +36,7 @@ const isBookmarkRouter = require('./routes/academy/isBookmark');
 
 // new api ================
 // initial search by condition
-const initialSearchRouter = requite('./routes/api/search');
+const initialSearchRouter = require('./routes/api/search');
 
 // ========================================
 // express for routing
