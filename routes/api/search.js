@@ -8,7 +8,9 @@ var mysqlDB = require('../../db_connector');
 router.post('/', function (req, res, next) {
     var limit = req.body.limit;
     var offset = req.body.offset;
-    var addr = req.body.addr;
+    var sido = req.body.sido;
+    var gungu = req.body.gungu;
+    var dong = req.body.dong;
     var subject = req.body.subject;
     var age = req.body.age;
     
@@ -47,7 +49,8 @@ router.post('/', function (req, res, next) {
 
     var query = 'select * from hwgo';
 
-    if (addr != '') query += ('where binary addr like \'%' + addr + '%\'');
+    if (gungu != '') query += ('where binary addr like \'%' + sido + ' ' + gungu + '%\'');
+    if (dong != '') query += (' and addr like \'%' + dong + '%\'');
     if (subject != '') query += ' and subject like \'%' + subject + '%\'';
     if (age != '') query += ' and age like \'%' + age + '%\'';
     query += ' limit ' + offset + ', ' + limit + ';';
