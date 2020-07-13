@@ -50,9 +50,9 @@ router.post('/', function (req, res, next) {
     var query = 'select * from gg_hakwon';
 
     if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
-    if (dong != '') query += (' and addr like \'%' + dong + '%\'');
-    if (subject != '') query += ' and subject like \'%' + subject + '%\'';
-    if (age != '') query += ' and age like \'%' + age + '%\'';
+    if (dong != '') query += (' and binary addr like \'%' + dong + '%\'');
+    if (subject != '') query += ' and binary subject like \'%' + subject + '%\'';
+    if (age != '') query += ' and binary age like \'%' + age + '%\'';
     query += ' limit ' + offset + ', ' + limit + ';';
 
     // changed return search result
