@@ -49,7 +49,7 @@ router.post('/', function (req, res, next) {
 
     var query = 'select * from hwgo';
 
-    if (gungu != '') query += ('where binary addr like \'%' + sido + ' ' + gungu + '%\'');
+    if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
     if (dong != '') query += (' and addr like \'%' + dong + '%\'');
     if (subject != '') query += ' and subject like \'%' + subject + '%\'';
     if (age != '') query += ' and age like \'%' + age + '%\'';
