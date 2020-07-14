@@ -60,6 +60,7 @@ router.post('/', function (req, res, next) {
     // changed return search result
     mysqlDB.query(
         query, function (err, result){
+            console.log(result);
             res.send(result);
         }
     );
