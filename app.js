@@ -35,11 +35,9 @@ const bookmarkRouter = require('./routes/academy/bookmark');
 const isBookmarkRouter = require('./routes/academy/isBookmark');
 
 // new api ================
-// initial search by condition
-const initialSearchRouter = require('./routes/api/search');
-
-// academy class information api
-const academyInfoRouter = require('./routes/api/info');
+const initialSearchRouter = require('./routes/api/search');           // initial search by condition
+const academyInfoRouter = require('./routes/api/info');               // academy class information api
+const idToAcademyRouter = require('./routes/api/id');                 // id -> academy
 
 // ========================================
 // express for routing
@@ -106,11 +104,9 @@ app.use('/api/academy/bookmark', bookmarkRouter);
 app.use('/api/academy/isBookmark', isBookmarkRouter);
 
 // new api ================
-// initial search by condition
-app.use('/api2/search/init', initialSearchRouter);
-
-// academy class information api
-app.use('/api2/classinfo', academyInfoRouter);
+app.use('/api2/search/init', initialSearchRouter);                // initial search by condition
+app.use('/api2/classinfo', academyInfoRouter);                    // academy class information api
+app.use('/api2/search/id', idToAcademyRouter);                    // id -> academy
 
 // ========================================
 // catch 404 and forward to error handler
