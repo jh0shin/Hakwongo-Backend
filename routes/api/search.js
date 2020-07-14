@@ -58,12 +58,12 @@ router.post('/', function (req, res, next) {
     console.log(query);
 
     // changed return search result
-    mysqlDB.query(
+    var dbres = mysqlDB.query(
         query, function (err, result){
-            console.log(result.body);
             res.send(result);
         }
     );
+    console.log(dbres.sql);
 
 });
 
