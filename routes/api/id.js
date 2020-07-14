@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
 
     // changed return search result
     mysqlDB.query(
-        'select distinct * from hakwon where id = ' + id + ';',
+        'select distinct * from gg_hakwon where id = ' + id + ';',
         function (err, result){
             res.send(result);
         }
