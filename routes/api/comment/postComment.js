@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
 
     // return search result
     mysqlDB.query(
-        'insert into comment (id, user, time, comment, heart) values (?, ?, ?, ?, 0);',
+        'insert into comment (id, user, comment, time, heart) values (?, ?, ?, ?, 0);',
         [Number(id), user, comment, time], function (err, result){
             res.send(result);
     });
