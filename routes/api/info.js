@@ -10,12 +10,9 @@ router.post('/', function (req, res, next) {
 
     var query = 'select * from gg_class where id = ' + id + ';';
 
-    console.log(query);
-
     // changed return search result
     mysqlDB.query(
         query, function (err, result){
-            console.log(result);
             res.send(result);
         }
     );

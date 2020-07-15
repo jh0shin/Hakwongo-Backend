@@ -43,6 +43,7 @@ const getCommentRouter2 = require('./routes/api/comment/getComment');       // g
 const deleteCommentRouter2 = require('./routes/api/comment/deleteComment'); // delete comment from db
 const likeCommentRouter2 = require('./routes/api/comment/likeComment');     // like comment from db
 const postCommentRouter2 = require('./routes/api/comment/postComment');     // post comment to db
+const numCommentRouter2 = require('./routes/api/comment/numComment');       // get number of comment from db
 
 // ========================================
 // express for routing
@@ -117,6 +118,7 @@ app.use('/api2/comment/get', getCommentRouter2);                  // get comment
 app.use('/api2/comment/delete', deleteCommentRouter2);            // delete comment from db
 app.use('/api2/comment/like', likeCommentRouter2);                // like comment from db
 app.use('/api2/comment/post', postCommentRouter2);                // post comment to db
+app.use('/api2/comment/num', numCommentRouter2);                  // get number of comment from db
 
 // ========================================
 // catch 404 and forward to error handler
