@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 
-var mysqlDB = require('../../db_connector');
+var mysqlDB = require('../../../db_connector');
 
 router.post('/', function (req, res, next) {
     var id = req.body.id;
