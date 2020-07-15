@@ -35,9 +35,14 @@ const bookmarkRouter = require('./routes/academy/bookmark');
 const isBookmarkRouter = require('./routes/academy/isBookmark');
 
 // new api ================
-const initialSearchRouter = require('./routes/api/search');           // initial search by condition
-const academyInfoRouter = require('./routes/api/info');               // academy class information api
-const idToAcademyRouter = require('./routes/api/id');                 // id -> academy
+const initialSearchRouter = require('./routes/api/search');                 // initial search by condition
+const academyInfoRouter = require('./routes/api/info');                     // academy class information api
+const idToAcademyRouter = require('./routes/api/id');                       // id -> academy
+
+const getCommentRouter2 = require('./routes/api/comment/getComment');       // get comment from db
+const deleteCommentRouter2 = require('./routes/api/comment/deleteComment'); // delete comment from db
+const likeCommentRouter2 = require('./routes/api/comment/likeComment');     // like comment from db
+const postCommentRouter2 = require('./routes/api/comment/postComment');     // post comment to db
 
 // ========================================
 // express for routing
@@ -107,6 +112,11 @@ app.use('/api/academy/isBookmark', isBookmarkRouter);
 app.use('/api2/search/init', initialSearchRouter);                // initial search by condition
 app.use('/api2/classinfo', academyInfoRouter);                    // academy class information api
 app.use('/api2/search/id', idToAcademyRouter);                    // id -> academy
+
+app.use('/api2/comment/get', getCommentRouter2);                  // get comment from db
+app.use('/api2/comment/delete', deleteCommentRouter2);            // delete comment from db
+app.use('/api2/comment/like', likeCommentRouter2);                // like comment from db
+app.use('/api2/comment/post', postCommentRouter2);                // post comment to db
 
 // ========================================
 // catch 404 and forward to error handler
