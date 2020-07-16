@@ -47,7 +47,9 @@ const numCommentRouter2 = require('./routes/api/comment/numComment');       // g
 
 const checkBookmarkRouter2 = require('./routes/api/bookmark/isBookmark');   // check if academy is already bookmarked
 const bookmarkRouter2 = require('./routes/api/bookmark/bookmark');          // bookmark or unbookmark
+
 const myBookmarkRouter2 = require('./routes/api/bookmark/myBookmark');      // get my bookmark list
+const myCommentRouter = require('./routes/api/comment/myComment');          // get my comment
 
 // ========================================
 // express for routing
@@ -126,7 +128,9 @@ app.use('/api2/comment/num', numCommentRouter2);                  // get number 
 
 app.use('/api2/bookmark/check', checkBookmarkRouter2);            // check if academy is already bookmarked
 app.use('/api2/bookmark/mark', bookmarkRouter2);                  // bookmark or unbookmark
+
 app.use('/api2/bookmark/my', myBookmarkRouter2);                  // get my bookmark list
+app.use('/api2/comment/my', myCommentRouter);                     // get my comment
 
 // ========================================
 // catch 404 and forward to error handler
