@@ -45,6 +45,9 @@ const likeCommentRouter2 = require('./routes/api/comment/likeComment');     // l
 const postCommentRouter2 = require('./routes/api/comment/postComment');     // post comment to db
 const numCommentRouter2 = require('./routes/api/comment/numComment');       // get number of comment from db
 
+const checkBookmarkRouter2 = require('./routes/api/bookmark/isBookmark');   // check if academy is already bookmarked
+const bookmarkRouter2 = require('./routes/api/bookmark/bookmark');          // bookmark or unbookmark
+
 // ========================================
 // express for routing
 const app = express();
@@ -119,6 +122,9 @@ app.use('/api2/comment/delete', deleteCommentRouter2);            // delete comm
 app.use('/api2/comment/like', likeCommentRouter2);                // like comment from db
 app.use('/api2/comment/post', postCommentRouter2);                // post comment to db
 app.use('/api2/comment/num', numCommentRouter2);                  // get number of comment from db
+
+const checkBookmarkRouter2 = require('./routes/api/bookmark/isBookmark');   // check if academy is already bookmarked
+const bookmarkRouter2 = require('./routes/api/bookmark/bookmark');          // bookmark or unbookmark
 
 // ========================================
 // catch 404 and forward to error handler
