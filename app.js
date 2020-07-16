@@ -123,8 +123,8 @@ app.use('/api2/comment/like', likeCommentRouter2);                // like commen
 app.use('/api2/comment/post', postCommentRouter2);                // post comment to db
 app.use('/api2/comment/num', numCommentRouter2);                  // get number of comment from db
 
-const checkBookmarkRouter2 = require('./routes/api/bookmark/isBookmark');   // check if academy is already bookmarked
-const bookmarkRouter2 = require('./routes/api/bookmark/bookmark');          // bookmark or unbookmark
+app.use('/api2/bookmark/check', checkBookmarkRouter2);            // check if academy is already bookmarked
+app.use('/api2/bookmark/mark', bookmarkRouter2);                  // bookmark or unbookmark
 
 // ========================================
 // catch 404 and forward to error handler
