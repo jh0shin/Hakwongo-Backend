@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
     if (type == "add") {
         // add current academy on bookmark list
         mysqlDB.query(
-            'insert into bookmark (user, id) values (?, ?);',
+            'insert into into bookmark (user, id) values (?, ?);',
             [user, Number(id)], function (err, result){
                 res.send(result);
         });
