@@ -47,7 +47,7 @@ router.post('/', function (req, res, next) {
     //         res.send(result);
     // });
 
-    var query = 'select distinct (id, name, addr, founder, callnum) from gg_hakwon';
+    var query = 'select distinct id, name, addr, founder, callnum from gg_hakwon';
 
     if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
     if (dong != '') query += (' and binary addr like \'%' + dong + '%\'');
