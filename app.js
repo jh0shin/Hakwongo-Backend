@@ -36,6 +36,7 @@ const isBookmarkRouter = require('./routes/academy/isBookmark');
 
 // new api ================
 const initialSearchRouter = require('./routes/api/search');                 // initial search by condition
+const nameSearchRouter = require('./routes/api/namesearch');                // search by name
 const academyInfoRouter = require('./routes/api/info');                     // academy class information api
 const idToAcademyRouter = require('./routes/api/id');                       // id -> academy
 
@@ -117,6 +118,7 @@ app.use('/api/academy/isBookmark', isBookmarkRouter);
 
 // new api ================
 app.use('/api2/search/init', initialSearchRouter);                // initial search by condition
+app.use('/api2/search/name', nameSearchRouter);                   // search by name
 app.use('/api2/classinfo', academyInfoRouter);                    // academy class information api
 app.use('/api2/search/id', idToAcademyRouter);                    // id -> academy
 
