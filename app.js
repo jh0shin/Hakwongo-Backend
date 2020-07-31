@@ -52,6 +52,12 @@ const bookmarkRouter2 = require('./routes/api/bookmark/bookmark');          // b
 const myBookmarkRouter2 = require('./routes/api/bookmark/myBookmark');      // get my bookmark list
 const myCommentRouter = require('./routes/api/comment/myComment');          // get my comment
 
+const paySuccessRouter = require('./routes/api/learningtest/paySuccess');   // save payment info
+const testValidRouter = require('./routes/api/learningtest/testValid');     // check if user is valid
+
+const storeTestRouter = require('./routes/api/learningtest/testend');       // store learning test result
+const getRecentTestRouter = require('./routes/api/learningtest/gettest');   // get recent learing test result
+
 // ========================================
 // express for routing
 const app = express();
@@ -133,6 +139,12 @@ app.use('/api2/bookmark/mark', bookmarkRouter2);                  // bookmark or
 
 app.use('/api2/bookmark/my', myBookmarkRouter2);                  // get my bookmark list
 app.use('/api2/comment/my', myCommentRouter);                     // get my comment
+
+app.use('/api2/test/paysuccess', paySuccessRouter);               // save payment info
+app.use('/api2/test/valid', testValidRouter);                     // check if user is valid
+
+app.use('/api2/test/end', storeTestRouter);                       // store learning test result
+app.use('/api2/test/recent', getRecentTestRouter);                // get recent learing test result
 
 // ========================================
 // catch 404 and forward to error handler
