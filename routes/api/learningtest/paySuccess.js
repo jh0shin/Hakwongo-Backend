@@ -7,6 +7,8 @@ var mysqlDB = require('../../../db_connector');
 
 router.post('/', function (req, res, next) {
     var user = req.body.user;
+    var paytime = req.body.paytime;
+    var validtime = req.body.validtime;
 
     // store payment info
     mysqlDB.query(
