@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
 
     // return if payment info is existed
     mysqlDB.query(
-        'select * from payment where user=?;',
+        'select * from payment where user=? order by validtime desc;',
         [user], function (err, result){
             res.send(result);
     });
