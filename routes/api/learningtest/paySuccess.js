@@ -9,11 +9,12 @@ router.post('/', function (req, res, next) {
     var user = req.body.user;
     var paytime = req.body.paytime;
     var validtime = req.body.validtime;
+    var mid = req.body.mid;
 
     // store payment info
     mysqlDB.query(
-        'insert into payment (user, paytime, validtime) values (?, ?, ?);',
-        [user, paytime, validtime], function (err, result){
+        'insert into payment (user, paytime, validtime, mid) values (?, ?, ?, ?);',
+        [user, paytime, validtime, mid], function (err, result){
             res.send(result);
     });
     
