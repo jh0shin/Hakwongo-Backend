@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
     var limit = req.body.limit;
     var offset = req.body.offset;
 
-    // return if payment info is existed
+    // return if recent test result is existed
     mysqlDB.query(
         'select * from learningtest where user=? order by testtime desc limit ?, ?;',
         [user, Number(offset), Number(limit)], function (err, result){

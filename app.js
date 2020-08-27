@@ -10,6 +10,11 @@ const logger = require('morgan');
 const mysqlDB = require('./db_connector');
 const cors = require('cors');
 
+// for apple login
+const AppleAuth = require("apple-auth");
+const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
+
 // ========================================
 //            ROUTER DECLARATION
 // ========================================
@@ -58,6 +63,8 @@ const testValidRouter = require('./routes/api/learningtest/testValid');     // c
 const storeTestRouter = require('./routes/api/learningtest/testend');       // store learning test result
 const getRecentTestRouter = require('./routes/api/learningtest/gettest');   // get recent learing test result
 
+const AuthRouter = require('./routes/auth/apple');                          // apple login callback & endpoint
+
 // ========================================
 // express for routing
 const app = express();
@@ -81,6 +88,14 @@ app.use(cors());
 //   res.header('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Content-Length, X-Requested-With');
 //   res.send();
 // })
+
+// ========================================
+// apple login settings
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// make all the files in 'public' available
+// https://expressjs.com/en/starter/static-files.html
+app.use(express.static("public"));
 
 // ========================================
 // view engine setup
@@ -145,6 +160,8 @@ app.use('/api2/test/valid', testValidRouter);                     // check if us
 
 app.use('/api2/test/end', storeTestRouter);                       // store learning test result
 app.use('/api2/test/recent', getRecentTestRouter);                // get recent learing test result
+
+app.use('/auth', AuthRouter);                                     // apple login callback & endpoint
 
 // ========================================
 // catch 404 and forward to error handler
