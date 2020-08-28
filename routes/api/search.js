@@ -55,12 +55,9 @@ router.post('/', function (req, res, next) {
     if (age != '') query += ' and binary age like \'%' + age + '%\'';
     query += ' limit ' + offset + ', ' + limit + ';';
 
-    console.log(query);
-
     // changed return search result
     mysqlDB.query(
         query, function (err, result){
-            console.log(result);
             res.send(result);
         }
     );
