@@ -18,28 +18,6 @@ const bodyParser = require("body-parser");
 // ========================================
 //            ROUTER DECLARATION
 // ========================================
-// hakwon search by name
-const searchByNameRouter = require('./routes/search/name');
-const searchByExactNameRouter = require('./routes/search/exactname');
-const searchByIDRouter = require('./routes/search/id');
-const idToNameRouter = require('./routes/search/idname');
-// post contact data to DB
-const contactParentRouter = require('./routes/contact/parent');
-const contactCompanyRouter = require('./routes/contact/company');
-const contactUsRouter = require('./routes/contact/us');
-const contactListRouter = require('./routes/contact/list');
-// post and get comment by DB
-const getCommentRouter = require('./routes/academy/getComment');
-const postCommentRouter = require('./routes/academy/postComment');
-const deleteCommentRouter = require('./routes/academy/deleteComment');
-// getting user information from DB
-const getMyCommentRouter = require('./routes/user/comment');
-const getMyBookmarkRouter = require('./routes/user/bookmark');
-// adding/deleting and checking bookmark
-const bookmarkRouter = require('./routes/academy/bookmark');
-const isBookmarkRouter = require('./routes/academy/isBookmark');
-
-// new api ================
 const initialSearchRouter = require('./routes/api/search');                 // initial search by condition
 const nameSearchRouter = require('./routes/api/namesearch');                // search by name
 const academyInfoRouter = require('./routes/api/info');                     // academy class information api
@@ -112,32 +90,6 @@ app.use(require('connect-history-api-fallback')());
 // ========================================
 //            ROUTER ROUTING
 // ========================================
-// contact for parents and company
-app.use('/api/contact/parent', contactParentRouter);
-app.use('/api/contact/company', contactCompanyRouter);
-app.use('/api/contact/us', contactUsRouter);
-app.use('/api/contact/list', contactListRouter);
-
-// post and get comment
-app.use('/api/academy/getComment', getCommentRouter);
-app.use('/api/academy/postComment', postCommentRouter);
-app.use('/api/academy/deleteComment', deleteCommentRouter);
-
-// get user information
-app.use('/api/user/comment', getMyCommentRouter);
-app.use('/api/user/bookmark', getMyBookmarkRouter);
-
-// search academy by name
-app.use('/api/search/name', searchByNameRouter);
-app.use('/api/search/exactname', searchByExactNameRouter);
-app.use('/api/search/id', searchByIDRouter);
-app.use('/api/search/idname', idToNameRouter);
-
-// adding/deleting and checking bookmark
-app.use('/api/academy/bookmark', bookmarkRouter);
-app.use('/api/academy/isBookmark', isBookmarkRouter);
-
-// new api ================
 app.use('/api2/search/init', initialSearchRouter);                // initial search by condition
 app.use('/api2/search/name', nameSearchRouter);                   // search by name
 app.use('/api2/classinfo', academyInfoRouter);                    // academy class information api
