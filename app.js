@@ -12,6 +12,10 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 
 // ========================================
+// express for routing
+const app = express();
+
+// ========================================
 // app option for preventing cors
 app.use(cors());
 
@@ -42,14 +46,6 @@ const storeTestRouter = require('./routes/api/learningtest/testend');       // s
 const getRecentTestRouter = require('./routes/api/learningtest/gettest');   // get recent learing test result
 
 const AuthRouter = require('./routes/auth/apple');                          // apple login callback & endpoint
-
-// ========================================
-// express for routing
-const app = express();
-
-// ========================================
-// default express port
-const port = 443;
 
 // ========================================
 // connection with database
