@@ -6,8 +6,6 @@ var router = express.Router();
 var mysqlDB = require('../../db_connector');
 
 router.post('/', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-
     var limit = req.body.limit;
     var offset = req.body.offset;
     var sido = req.body.sido;

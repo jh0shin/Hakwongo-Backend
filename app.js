@@ -12,6 +12,10 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 
 // ========================================
+// app option for preventing cors
+app.use(cors());
+
+// ========================================
 //            ROUTER DECLARATION
 // ========================================
 const initialSearchRouter = require('./routes/api/search');                 // initial search by condition
@@ -50,11 +54,6 @@ const port = 443;
 // ========================================
 // connection with database
 mysqlDB.connect();
-
-// ========================================
-// app option for preventing cors
-app.use(cors());
-app.options('*', cors());
 
 // ========================================
 // apple login settings
