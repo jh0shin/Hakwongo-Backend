@@ -18,7 +18,7 @@ const app = express();
 // ========================================
 // app option for preventing cors
 app.options('*', cors());
-app.use(cors());
+app.use(cors);
 
 // ========================================
 //            ROUTER DECLARATION
