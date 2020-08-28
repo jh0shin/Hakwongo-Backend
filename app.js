@@ -55,13 +55,13 @@ mysqlDB.connect();
 // app option for preventing cors
 app.use(cors());
 
-// app.options('/wirte', (req, res) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-//   res.header('Access-Control-Max-Age', '3600')
-//   res.header('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Content-Length, X-Requested-With');
-//   res.send();
-// })
+app.options('/wirte', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Max-Age', '3600')
+  res.header('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Content-Length, X-Requested-With');
+  res.send();
+})
 
 // ========================================
 // apple login settings
