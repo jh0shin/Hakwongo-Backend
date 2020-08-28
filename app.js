@@ -10,11 +10,6 @@ const logger = require('morgan');
 const mysqlDB = require('./db_connector');
 const cors = require('cors');
 
-// for apple login
-const AppleAuth = require("apple-auth");
-const jwt = require("jsonwebtoken");
-const bodyParser = require("body-parser");
-
 // ========================================
 //            ROUTER DECLARATION
 // ========================================

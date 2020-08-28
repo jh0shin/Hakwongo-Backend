@@ -4,6 +4,11 @@ var express = require('express');
 const app = require('../../app');
 var router = express.Router();
 
+// for apple login
+const AppleAuth = require("apple-auth");
+const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
+
 // The callback route used for Android, which will send the callback parameters from Apple into the Android app.
 // This is done using a deeplink, which will cause the Chrome Custom Tab to be dismissed and providing the parameters from Apple back to the app.
 router.post("/callbacks/sign_in_with_apple", (request, response) => {
