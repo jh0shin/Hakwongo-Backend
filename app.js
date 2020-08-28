@@ -53,7 +53,7 @@ mysqlDB.connect();
 
 // ========================================
 // app option for preventing cors
-app.use(cors());
+// app.use(cors());
 
 // ========================================
 // apple login settings
