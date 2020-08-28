@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mysqlDB = require('./db_connector');
 const cors = require('cors');
+const bodyParser = require("body-parser");
 
 // ========================================
 //            ROUTER DECLARATION
