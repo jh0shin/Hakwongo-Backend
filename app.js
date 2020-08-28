@@ -17,8 +17,13 @@ const app = express();
 
 // ========================================
 // app option for preventing cors
-app.options('*', cors());
-app.use(cors);
+const corsOption = {
+  origin: true,
+  methods: ["POST", "GET"],
+  credentials: true,
+  maxAge: 3600
+}
+app.use(cors(corsOption));
 
 // ========================================
 //            ROUTER DECLARATION
