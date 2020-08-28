@@ -10,6 +10,8 @@ const logger = require('morgan');
 const mysqlDB = require('./db_connector');
 const cors = require('cors');
 const bodyParser = require("body-parser");
+const https = require('https');
+const fs = require('fs');
 
 // ========================================
 // express for routing
@@ -104,6 +106,14 @@ app.use('/api2/test/end', storeTestRouter);                       // store learn
 app.use('/api2/test/recent', getRecentTestRouter);                // get recent learing test result
 
 app.use('/auth', AuthRouter);                                     // apple login callback & endpoint
+
+// ========================================
+// https service
+const httpsOption = {
+  key: fs.readFileSync('https/key.pem'),
+  cert: fs.readFileSync('https/cert.cert')
+};
+https.createServer(httpsOption, app).listen(2052);
 
 // ========================================
 // catch 404 and forward to error handler
