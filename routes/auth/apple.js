@@ -6,7 +6,7 @@ var router = express.Router();
 
 // The callback route used for Android, which will send the callback parameters from Apple into the Android app.
 // This is done using a deeplink, which will cause the Chrome Custom Tab to be dismissed and providing the parameters from Apple back to the app.
-app.post("/callbacks/sign_in_with_apple", (request, response) => {
+router.post("/callbacks/sign_in_with_apple", (request, response) => {
     const redirect = `intent://callback?${new URLSearchParams(
         request.body
     ).toString()}#Intent;package=${
@@ -18,10 +18,10 @@ app.post("/callbacks/sign_in_with_apple", (request, response) => {
     response.redirect(307, redirect);
 });
   
-    // Endpoint for the app to login or register with the `code` obtained during Sign in with Apple
-    //
-    // Use this endpoint to exchange the code (which must be validated with Apple within 5 minutes) for a session in your system
-    app.post("/sign_in_with_apple", async (request, response) => {
+// Endpoint for the app to login or register with the `code` obtained during Sign in with Apple
+//
+// Use this endpoint to exchange the code (which must be validated with Apple within 5 minutes) for a session in your system
+router.post("/sign_in_with_apple", async (request, response) => {
     const auth = new AppleAuth(
         {
         // use the bundle ID as client ID for native apps, else use the service ID for web-auth flows
