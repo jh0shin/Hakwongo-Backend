@@ -115,8 +115,9 @@ http.createServer(app).listen(3000);
 // ========================================
 // https service
 const httpsOption = {
-  key: fs.readFileSync('https/key.pem'),
-  cert: fs.readFileSync('https/cert.cert')
+  ca: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/cert.pem'),
 };
 https.createServer(httpsOption, app).listen(2052);
 
