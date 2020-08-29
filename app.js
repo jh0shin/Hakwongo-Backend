@@ -11,6 +11,7 @@ const mysqlDB = require('./db_connector');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 
 // ========================================
@@ -106,6 +107,10 @@ app.use('/api2/test/end', storeTestRouter);                       // store learn
 app.use('/api2/test/recent', getRecentTestRouter);                // get recent learing test result
 
 app.use('/auth', AuthRouter);                                     // apple login callback & endpoint
+
+// ========================================
+// http service
+http.createServer(app).listen(3000);
 
 // ========================================
 // https service
