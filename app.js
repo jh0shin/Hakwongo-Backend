@@ -13,6 +13,8 @@ const bodyParser = require("body-parser");
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
+const createServer = require("auto-sni");
+
 
 // ========================================
 // express for routing
@@ -108,18 +110,30 @@ app.use('/api2/test/recent', getRecentTestRouter);                // get recent 
 
 app.use('/auth', AuthRouter);                                     // apple login callback & endpoint
 
-// ========================================
-// http service
-http.createServer(app).listen(3000);
+// // ========================================
+// // http service
+// http.createServer(app).listen(3000);
 
-// ========================================
-// https service
-const httpsOption = {
-  ca: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/fullchain.pem'),
-  key: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/cert.pem'),
-};
-https.createServer(httpsOption, app).listen(2052);
+// // ========================================
+// // https service
+// const httpsOption = {
+//   ca: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/fullchain.pem'),
+//   key: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/hakwongo.com/cert.pem'),
+// };
+// https.createServer(httpsOption, app).listen(2052);
+
+createServer({
+  email: "jh0shin2004@naver.com",
+  agreeTos: true,
+  debug: false,
+  domains: ["hakwongo.com"],
+  dir: "/etc/letsencrypt/live/hakwongo.com",
+  ports: {
+    http: 3000,
+    https: 2052,
+  }
+}, app)
 
 // ========================================
 // catch 404 and forward to error handler
