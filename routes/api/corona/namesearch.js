@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
     // return empty set.
     // ===========================================================================
 
-    var query = 'select distinct id, name, addr, founder, callnum from corona_hakwon where name like \'%' + name + '%\'';
+    var query = 'select * from corona_hakwon where name like \'%' + name + '%\'';
     query += ' limit ' + offset + ', ' + limit + ';';
 
     // changed return search result
