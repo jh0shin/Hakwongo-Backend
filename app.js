@@ -57,6 +57,9 @@ const getRecentTestRouter = require('./routes/api/learningtest/gettest');   // g
 
 const AuthRouter = require('./routes/auth/apple');                          // apple login callback & endpoint
 
+const coronaSearchRouter = require('./routes/api/corona/search');           // corona - search by condition
+const coronaNameSearchRouter = require('./routes/api/corona/namesearch');   // corona - search by name
+
 // ========================================
 // connection with database
 mysqlDB.connect();
@@ -108,6 +111,9 @@ app.use('/api2/test/end', storeTestRouter);                       // store learn
 app.use('/api2/test/recent', getRecentTestRouter);                // get recent learing test result
 
 app.use('/auth', AuthRouter);                                     // apple login callback & endpoint
+
+app.use('/api2/search/corona/init', coronaSearchRouter);          // corona - search by condition
+app.use('/api2/search/corona/name', coronaNameSearchRouter);      // corona - search by name
 
 // ========================================
 // http service

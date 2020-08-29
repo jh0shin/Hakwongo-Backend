@@ -29,9 +29,6 @@ router.post("/callbacks/sign_in_with_apple", (request, response) => {
 //
 // Use this endpoint to exchange the code (which must be validated with Apple within 5 minutes) for a session in your system
 router.post("/sign_in_with_apple", async (request, response) => {
-    // env variable test
-    console.log(process.env);
-
     const auth = new AppleAuth(
         {
         // use the bundle ID as client ID for native apps, else use the service ID for web-auth flows
