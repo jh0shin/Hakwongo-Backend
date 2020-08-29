@@ -38,7 +38,7 @@ router.post("/sign_in_with_apple", async (request, response) => {
             "http://www.hakwongo.com:3000/auth/callbacks/sign_in_with_apple", // does not matter here, as this is already the callback that verifies the token after the redirection
         key_id: process.env.KEY_ID
         },
-        process.env.KEY_CONTENTS.replace(/\\n/g, "\n"),
+        process.env.KEY_CONTENTS.replace(/\|/g, "\n"),
         "text"
     );
 
