@@ -59,6 +59,7 @@ const AuthRouter = require('./routes/auth/apple');                          // a
 
 const coronaSearchRouter = require('./routes/api/corona/search');           // corona - search by condition
 const coronaNameSearchRouter = require('./routes/api/corona/namesearch');   // corona - search by name
+const coronaIDRouter = require('./routes/api/corona/id');                   // corona - id to academy
 
 // ========================================
 // connection with database
@@ -114,6 +115,7 @@ app.use('/auth', AuthRouter);                                     // apple login
 
 app.use('/api2/search/corona/init', coronaSearchRouter);          // corona - search by condition
 app.use('/api2/search/corona/name', coronaNameSearchRouter);      // corona - search by name
+app.use('/api2/search/corona/id', coronaIDRouter);                // corona - id to academy
 
 // ========================================
 // http service
