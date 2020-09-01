@@ -49,7 +49,8 @@ router.post('/', function (req, res, next) {
 
     var query = 'select distinct id, name, addr, founder, callnum from gg_hakwon';
 
-    if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
+    query += (' where binary addr like \'%' + sido + '%\'');
+    if (gungu != '') query += (' and binary addr like \'%' + gungu + '%\'');
     if (dong != '') query += (' and binary addr like \'%' + dong + '%\'');
     if (subject != '') query += ' and binary subject like \'%' + subject + '%\'';
     if (age != '') query += ' and binary age like \'%' + age + '%\'';

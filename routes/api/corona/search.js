@@ -49,7 +49,7 @@ router.post('/', function (req, res, next) {
 
     var query = 'select * from corona_hakwon';
 
-    if (gungu != '') query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
+    query += (' where binary addr like \'%' + sido + ' ' + gungu + '%\'');
     if (dong != '') query += (' and binary addr like \'%' + dong + '%\'');
     if (subject != '') query += ' and binary subject like \'%' + subject + '%\'';
     if (age != '') query += ' and binary age like \'%' + age + '%\'';
